@@ -273,6 +273,12 @@
       const apiUrl = "https://jsonplaceholder.typicode.com/users/";
       let usersArray = [];
 
+      async function fetchUsers() {
+        const response = await fetch(apiUrl);
+        usersArray = await response.json();
+        renderTable();
+      }
+
       function renderTable() {
         const tbody = document.getElementById("userTableBody");
         tbody.innerHTML = "";
